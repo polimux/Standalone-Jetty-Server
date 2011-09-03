@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="public/WEB-INF/lib/jetty-continuation-7.4.2.v20110526.jar"/>
+	<classpathentry kind="lib" path="public/WEB-INF/lib/jetty-http-7.4.2.v20110526.jar"/>
+	<classpathentry kind="lib" path="public/WEB-INF/lib/jetty-io-7.4.2.v20110526.jar"/>
+	<classpathentry kind="lib" path="public/WEB-INF/lib/jetty-security-7.4.2.v20110526.jar"/>
+	<classpathentry kind="lib" path="public/WEB-INF/lib/jetty-server-7.4.2.v20110526.jar"/>
+	<classpathentry kind="lib" path="public/WEB-INF/lib/jetty-servlet-7.4.2.v20110526.jar"/>
+	<classpathentry kind="lib" path="public/WEB-INF/lib/jetty-util-7.4.2.v20110526.jar"/>
+	<classpathentry kind="lib" path="public/WEB-INF/lib/jetty-webapp-7.4.2.v20110526.jar"/>
+	<classpathentry kind="lib" path="public/WEB-INF/lib/jetty-xml-7.4.2.v20110526.jar"/>
+	<classpathentry kind="lib" path="public/WEB-INF/lib/servlet-api-2.5.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="public/WEB-INF/classes"/>
+</classpath>

@@ -1,0 +1,49 @@
+<project name="Standalone Jetty build script" default="war" basedir="../">
+<target name="war" description="--> Creates self-executing war">
+  <property name="staging.dir" location="${basedir}/build"/>
+  <property name="webapp.dir" location="${basedir}/public"/>
+
+  <mkdir dir="${staging.dir}"/>
+
+  <!-- assumes you have all of your war content (excluding classes and libraries) already structured in a directory called src/webapp -->
+  <!-- e.g. -->
+  <!-- src/webapp/index.html -->
+  <!-- src/webapp/WEB-INF/web.xml -->
+  <!-- src/webapp/WEB-INF/classes/my.properties -->
+  <!-- etc ... -->
+  <copy todir="${staging.dir}">
+    <fileset dir="${webapp.dir}" includes="**/*"/>
+  </copy>
+
+  <unjar dest="${staging.dir}">
+    <!-- you'll have to locate these jars or appropriate versions; note that these include JSP support -->
+    <!-- you might find some of them in the downloaded Jetty .tgz -->
+   	<fileset dir="${webapp.dir}/WEB-INF/lib" includes="**/*"/>
+  	 <patternset><!-- to exclude some of the stuff we don't really need -->
+  	      <exclude name="META-INF/**/*"/>
+  	      <exclude name="images/**/*"/>
+  	      <exclude name=".options"/>
+  	      <exclude name="about.html"/>
+  	      <exclude name="jdtCompilerAdapter.jar"/>
+  	      <exclude name="plugin*"/>
+  	    </patternset>
+  </unjar>
+
+  <!-- copy in the class file built from the above EmbeddedJettyServer.java -->
+  <copy todir="${staging.dir}">
+    <fileset dir="${webapp.dir}/WEB-INF/classes" includes="de/server/TestServer.class"/>
+  </copy>
+
+  <war destfile="standaloneJetty.war" webxml="${webapp.dir}/WEB-INF/web.xml">
+    <fileset dir="${staging.dir}" includes="**/*"/>
+    <classes dir="${webapp.dir}/WEB-INF/classes"/><!-- your application classes -->
+    <lib dir="${webapp.dir}/WEB-INF/lib"/><!-- application dependency jars -->
+    <manifest>
+      <!-- add the Main-Class attribute that will execute our server class -->
+      <attribute name="Main-Class" value="de.server.TestServer"/>
+    </manifest>
+  </war>
+
+  <delete dir="${staging.dir}"/>
+</target>
+</project>

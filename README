@@ -1,3 +1,5 @@
 Example for a self executing war-file with Jetty 7.4
 
-Bases on <a href="http://stackoverflow.com/questions/2458440/executable-war-file-that-starts-jetty-without-maven">Stack-Overflow</a> und <a href="http://eclipsesource.com/blogs/2009/10/02/executable-wars-with-jetty/">Eclipse-Source</a>
+Bases on 
+* http://stackoverflow.com/questions/2458440/executable-war-file-that-starts-jetty-without-maven 
+* http://eclipsesource.com/blogs/2009/10/02/executable-wars-with-jetty/
